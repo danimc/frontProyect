@@ -1,22 +1,17 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "wouter";
-
-
+import useUser from "../../hooks/useUser";
 
 export default function LoginPage() {
+  const {login} = useUser();
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const [user, setUser] = useState(null);
-    const [pass, setPass] = useState(null);
-
-    const handleSubmit = (e) => {
-
-        e.preventDefault()
-
-        console.log(pass, user);
-    }
-
-
+    login({ email, password });
+  };
 
   return (
     <>
@@ -29,25 +24,29 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit}>
             <input
               type="email"
-              id="login"
+              id="email"
               className="form-control form-control-lg formInput"
-              name="login"
+              name="email"
               placeholder="email"
-              onChange={e => setUser(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               id="password"
               className="form-control form-control-lg formInput"
-              name="login"
+              name="password"
               placeholder="password"
-              onChange={e => setPass(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <input type="submit" className="btn btn-info btn-lg mt-3 mb-3" value="Log In" />
+            <input
+              type="submit"
+              className="btn btn-info btn-lg mt-3 mb-3"
+              value="Log In"
+            />
           </form>
 
           <div id="formFooter">
-            <Link to="/register">Registrarse </Link>         
+            <Link to="/register">Registrarse </Link>
           </div>
         </div>
       </div>
