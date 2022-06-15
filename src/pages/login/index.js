@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "wouter";
 
 
 
-export default function Login() {
+export default function LoginPage() {
 
 
     const [user, setUser] = useState(null);
@@ -21,7 +22,7 @@ export default function Login() {
     <>
       <div className="wrapper fadeInDown">
         <div id="formContent">
-          <div className="fadeIn first">
+          <div className="">
             <h2>Inicio de sesion</h2>
           </div>
 
@@ -46,9 +47,7 @@ export default function Login() {
           </form>
 
           <div id="formFooter">
-            <a className="underlineHover" href="#">
-              Registrarse
-            </a>
+            <Link to="/register">Registrarse </Link>         
           </div>
         </div>
       </div>

@@ -1,12 +1,15 @@
-import './App.css'
-import Login from "./pages/login";
+import { Route } from "wouter";
+import "./App.css";
+import LoginPage from "./pages/login";
+import RegisterPage from "./pages/register";
 
 function App() {
   return (
     <>
-    <Login></Login>
- </>
-  )
+      <Route component={LoginPage} path="/" />
+      <Route component={RegisterPage} path="/register" />
+    </>
+  );
 }
 
 export default App;
