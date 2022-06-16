@@ -10,8 +10,9 @@ export default function HomePage() {
         <h2> Bienvenido al panel de control</h2>
         
         <hr/>
-
         <PanelControl />
+
+
       </div>
     </>
   );

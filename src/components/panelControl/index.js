@@ -1,22 +1,27 @@
 import React from "react";
-import ReactPlayer from "react-player";
+import Video from "../video";
+import "./style.css"
+
+const SECURITY = [
+    'https://www.youtube.com/watch?v=tZzNART_qgA',
+    'https://www.youtube.com/watch?v=xBQhGg_jmPY',
+    'https://www.youtube.com/watch?v=xBQhGg_jmPY',
+    'https://www.youtube.com/watch?v=xBQhGg_jmPY',
+    'https://www.youtube.com/watch?v=xBQhGg_jmPY',
+    'https://www.youtube.com/watch?v=xBQhGg_jmPY',
+]
+
 
 export default function PanelControl() {
   return (
     <>
-      <h1>video:</h1>
-      <ReactPlayer
-        url="https://www.youtube.com/watch?v=JSpK8LxBKqQ"
-       playing
-       controls
-      />
-         <ReactPlayer
-        url="https://www.youtube.com/watch?v=fcSk_DZFjf4"
-       playing
-       muted       
-      />
+      <h4>videos de seguridad:</h4>
+      <button className="btn btn-outline-primary" type="button">Pausa</button>
+      <div className="player-wrapper">
+      {SECURITY.map(vid => <Video key={vid} url={vid} />)}
+      </div>
 
-   
+
     </>
   );
 }
