@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "wouter";
+import {Link, useLocation } from "wouter";
 import useUser from "../../hooks/useUser";
 
 export default function LoginPage() {
-  const {login} = useUser();
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const {login, isLogged} = useUser()
+  const [, navigate] = useLocation()
+  const [email, setEmail] = useState(null)
+  const [password, setPassword] = useState(null)
+
+  useEffect(() => {
+    if(isLogged) navigate("/home")
+    },[isLogged, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     login({ email, password });
   };
+  
 
   return (
     <>

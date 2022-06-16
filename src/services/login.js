@@ -7,9 +7,16 @@ export default function login({ email, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then((res) => {
-    console.log(res);
-    if (!res.ok) throw new Error("Response is NOT ok");
-    return true;
-  });
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Response is NOT ok");
+      return res.json();
+    })
+    .then((res) => {
+
+      console.log(res)
+
+      const { token } = res;
+      return token;
+    });
 }
